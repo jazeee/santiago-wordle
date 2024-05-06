@@ -31,4 +31,14 @@ describe('getMetrics', () => {
       GuessOutcome.NO_MATCH,
     ]);
   });
+
+  it('should get yellow and gray metrics for mismatched position guesses', () => {
+    expect(getMetrics('PILLS', 'LIPPY')).toEqual([
+      GuessOutcome.MATCH_IN_OTHER_POSITION,
+      GuessOutcome.MATCH_IN_POSITION,
+      GuessOutcome.MATCH_IN_OTHER_POSITION,
+      GuessOutcome.NO_MATCH,
+      GuessOutcome.NO_MATCH,
+    ]);
+  });
 });
