@@ -11,4 +11,24 @@ describe('getMetrics', () => {
       GuessOutcome.MATCH_IN_POSITION,
     ]);
   });
+
+  it('should get other position metrics match', () => {
+    expect(getMetrics('ABCDE', 'BCDEA')).toEqual([
+      GuessOutcome.MATCH_IN_OTHER_POSITION,
+      GuessOutcome.MATCH_IN_OTHER_POSITION,
+      GuessOutcome.MATCH_IN_OTHER_POSITION,
+      GuessOutcome.MATCH_IN_OTHER_POSITION,
+      GuessOutcome.MATCH_IN_OTHER_POSITION,
+    ]);
+  });
+
+  it('should get no matches', () => {
+    expect(getMetrics('ABCDE', 'VWXYZ')).toEqual([
+      GuessOutcome.NO_MATCH,
+      GuessOutcome.NO_MATCH,
+      GuessOutcome.NO_MATCH,
+      GuessOutcome.NO_MATCH,
+      GuessOutcome.NO_MATCH,
+    ]);
+  });
 });
