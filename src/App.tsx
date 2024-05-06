@@ -22,7 +22,7 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={APP_THEME}>
         <CssBaseline />
-        <Container maxWidth="xs">
+        <Container maxWidth="xs" sx={{ marginY: 2 }}>
           <Stack spacing={2}>
             <form
               onSubmit={(event) => {
@@ -31,7 +31,7 @@ export function App() {
                 setGuesses((priorGuesses) => {
                   const lastWord = guessedWord;
                   setGuessedWord('');
-                  return [...priorGuesses, lastWord];
+                  return [...priorGuesses, lastWord.toUpperCase()];
                 });
               }}
             >
